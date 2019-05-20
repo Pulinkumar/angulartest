@@ -1,0 +1,41 @@
+<div class="container">
+  <form #f="ngForm" (ngSubmit)="saveEmployee(f.value)">
+    <input #empId="ngModel" [(ngModel)]="employee.EmpID" name="EmpID" id="empID" type="text" class="form-control"
+      hidden>
+    <div class="form-group">
+      <label for="empCode">Code</label>
+      <!-- <input ngModel name="empCode" id="empCode" type="text" class="form-control"> -->
+      <input #empCode="ngModel" [(ngModel)]="employee.EmpCode" name="EmpCode" id="empCode" type="text"
+        class="form-control" required>
+      <div *ngIf="empCode.touched && empCode.invalid" class="alert alert-danger">
+        Employee Code Required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="empName">Name</label>
+      <!-- <input ngModel name="empName" id="empName" type="text" class="form-control"> -->
+      <input #empName="ngModel" [(ngModel)]="employee.EmpName" name="EmpName" id="empName" type="text"
+        class="form-control" required>
+      <div *ngIf="empName.touched && empName.invalid" class="alert alert-danger">
+        Employee Name Required
+      </div>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <input [(ngModel)]="employee.Gender" #gender="ngModel" type="radio" name="gender" id="male"
+        class="form-check-input" value="Male">
+      <label class="form-check-label" for="male">Male</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input [(ngModel)]="employee.Gender" #gender="ngModel" type="radio" name="gender" id="female"
+        class="form-check-input" value="Female">
+      <label class="form-check-label" for="female">Female</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save</button> |
+    <button class="btn btn-primary" (click)="backToList()">Back</button>
+  </form>
+  <br />
+  {{ f.value | json}}
+  <br />
+  {{ employee | json}}
+</div>

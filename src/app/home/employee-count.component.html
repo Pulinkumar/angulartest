@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" id="All" type="radio" name="genderSelect" value="all" [(ngModel)]="selectedRadio"
+        (change)="onRadioChange()">
+      <label class="form-check-label" for="All">{{ 'All(' + all + ') ' }}</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" id="Male" type="radio" name="genderSelect" value="male"
+        [(ngModel)]="selectedRadio" (change)="onRadioChange()">
+      <label class="form-check-label" for="Male">{{ 'Male(' + male + ') ' }}</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" id="Female" type="radio" name="genderSelect" value="female"
+        [(ngModel)]="selectedRadio" (change)="onRadioChange()">
+      <label class="form-check-label" for="Female">{{ 'Female(' + female + ') ' }}</label>
+    </div>
+  </div>
+  <div class="col-md-6 text-right">
+    Search:
+    <input type="text" value="" [(ngModel)]="searchText" (input)="onSearchTextChange()">
+  </div>
+</div>
