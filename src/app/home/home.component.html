@@ -7,29 +7,35 @@
   </div>
 
   <div class="row">
-    <table class="table table-hover">
-      <thead>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Birth Date</th>
-      </thead>
-      <tbody>
-        <ng-container *ngFor="let employee of employeeList;">
-          <tr *ngIf="gender === 'all' || employee.Gender === gender">
-            <td>
-              <a herf="" (click)="deleteEmployee(employee.EmpID)">
-                <span class="glyphicon glyphicon-remove"></span></a>
-            </td>
-            <td>
-              <a routerLink="/employee/{{employee.EmpID}}">{{employee.EmpCode}}</a>
-            </td>
-            <td>{{employee.EmpName }}</td>
-            <td>{{employee.Gender}}</td>
-            <td>{{employee.BirthDate | date:'dd/MM/yyyy'}}</td>
+    <div class="col-md-12">
+      <table class="table table-hover" id="emplst" style="width:100%">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Birth Date</th>
           </tr>
-        </ng-container>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let employee of employeeList;">
+            <tr *ngIf="gender === 'all' || employee.Gender === gender">
+              <td>
+                <a herf="#" (click)="deleteEmployee(employee.EmpID)">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </a>
+              </td>
+              <td>
+                <a routerLink="/employee/{{employee.EmpID}}">{{employee.EmpCode}}</a>
+              </td>
+              <td>{{employee.EmpName }}</td>
+              <td>{{employee.Gender}}</td>
+              <td>{{employee.BirthDate | date:'dd/MM/yyyy'}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

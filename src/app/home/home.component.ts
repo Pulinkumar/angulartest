@@ -1,6 +1,7 @@
 import { EmployeeService } from "./../employee.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnChanges } from "@angular/core";
 import { IEmployee } from "./IEmployee";
+declare var $;
 
 @Component({
   selector: "app-home",
@@ -49,6 +50,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.GetAllEmployees();
+
+    $(function() {
+      $("#emplst").DataTable();
+    });
   }
 
   GetAllEmployees() {
